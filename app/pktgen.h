@@ -154,16 +154,18 @@ extern "C" {
  * @param npkts
  *   Number of packets to free in m_list.
  */
-static inline void __attribute__((always_inline))
-rte_pktmbuf_free_bulk(struct rte_mbuf *m_list[], int16_t npkts)
-{
-	struct rte_mbuf *m;
-	while (npkts--) {
-		m = *m_list++;
-		rte_pktmbuf_free(m);
-		m->next = 0;
-	}
-}
+// static inline void __attribute__((always_inline))
+// void __attribute__((always_inline))
+// rte_pktmbuf_free_bulk(struct rte_mbuf *m_list[], int16_t npkts)
+// {
+// 	struct rte_mbuf *m;
+// 	while (npkts--) {
+// 		m = *m_list++;
+// 		rte_pktmbuf_free(m);
+// 		m->next = 0;
+// 	}
+// }
+// Comment by lduan to prevent make error
 
 typedef enum { PACKET_CONSUMED = 0, UNKNOWN_PACKET = 0xEEEE,
 	       DROP_PACKET = 0xFFFE, FREE_PACKET = 0xFFFF } pktType_e;
